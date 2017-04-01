@@ -3,12 +3,14 @@
 #include "ModuleRender.h"
 #include "ModuleInput.h"
 #include "ModuleTextures.h"
-#include "ModuleSceneSpace.h"
+#include "ModuleFirstScene.h"
+#include "ModuleSecondScene.h"
+#include "ModuleEndScene.h"
 #include "ModulePlayer.h"
 #include "ModuleFadeToBlack.h"
 #include "ModuleParticles.h"
 #include "ModuleAudio.h"
-#include "ModuleNew.h"
+#include "ModuleInit.h"
 
 Application::Application()
 {
@@ -16,12 +18,15 @@ Application::Application()
 	modules[1] = render = new ModuleRender();
 	modules[2] = input = new ModuleInput();
 	modules[3] = textures = new ModuleTextures();
-	modules[4] = scene_space = new ModuleSceneSpace();
-	modules[5] = player = new ModulePlayer();
-	modules[6] = particles = new ModuleParticles();
-	modules[7] = fade = new ModuleFadeToBlack();
-	modules[8] = scene_start = new ModuleNew();
-	modules[9] = music = new ModuleAudio();
+	modules[4] = scene_space = new ModuleFirstScene(); // Charge all the scenes before Player!!! if we don't do that the player will be under the background
+	modules[5] = scene_map2 = new ModuleSecondScene();
+	modules[6] = end_scene = new ModuleEndScene();
+	modules[7] = player = new ModulePlayer();
+	modules[8] = particles = new ModuleParticles();
+	modules[9] = fade = new ModuleFadeToBlack();
+	modules[10] = scene_start = new ModuleInit();
+	modules[11] = music = new ModuleAudio();
+	
 }	
 
 Application::~Application()
@@ -37,7 +42,10 @@ bool Application::Init()
 	// Disable all stopped modules here
 	player->Disable();
 	scene_space->Disable();
+	scene_map2->Disable();
+	end_scene->Disable();
 	music->Disable();
+	
 	// ---
 
 	for(int i = 0; i < NUM_MODULES && ret == true; ++i)

@@ -3,6 +3,10 @@
 #include "Application.h"
 #include "ModuleFadeToBlack.h"
 #include "ModuleRender.h"
+#include "ModuleInit.h"
+#include "ModuleFirstScene.h"
+#include "ModuleSecondScene.h"
+#include "ModuleEndScene.h"
 #include "SDL/include/SDL_render.h"
 #include "SDL/include/SDL_timer.h"
 
@@ -48,9 +52,14 @@ update_status ModuleFadeToBlack::Update()
 		case fade_step::fade_from_black:
 		{
 			normalized = 1.0f - normalized;
-
-			if(now >= total_time)
+			if (now >= total_time) {
 				current_step = fade_step::none;
+				App->scene_start->fading = false;
+				App->scene_space->fading = false; //we need that because if we pres change fade to black during one fade the next won't work
+				App->scene_map2->fading = false;
+				App->end_scene->fading = false;
+			}
+				
 		} break;
 	}
 
