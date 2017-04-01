@@ -44,14 +44,9 @@ bool ModuleFirstScene::CleanUp()
 update_status ModuleFirstScene::Update()
 {
 	// Move camera forward -----------------------------
-	int scroll_speed = 1;
-
-	App->player->position.y += 1;
-	App->render->camera.y -= 3;
-	
 
 	// Draw everything --------------------------------------
-	App->render->Blit(background, 0, 0, NULL);
+	App->render->Blit(background, 0, -1864+SCREEN_HEIGHT, NULL);
 
 	if (App->input->keyboard[SDL_SCANCODE_C] == 1 && fading == false)
 	{

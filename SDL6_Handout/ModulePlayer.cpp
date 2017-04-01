@@ -58,21 +58,34 @@ bool ModulePlayer::CleanUp()
 // Update: draw background
 update_status ModulePlayer::Update()
 {
-	int speed = 1;
+	int speed = 2;
+	/*
+	if (App->input->keyboard[SDL_SCANCODE_W] == KEY_STATE::KEY_REPEAT || App->input->keyboard[SDL_SCANCODE_UP] == KEY_STATE::KEY_REPEAT)
+	if (camera.y < 1856 + SCREEN_HEIGHT)
+	camera.y += speed;
+
+	if (App->input->keyboard[SDL_SCANCODE_S] == KEY_STATE::KEY_REPEAT || App->input->keyboard[SDL_SCANCODE_DOWN] == KEY_STATE::KEY_REPEAT)
+	if (camera.y > 0)
+	camera.y -= speed;
+	*/
 
 	if(App->input->keyboard[SDL_SCANCODE_A] == KEY_STATE::KEY_REPEAT)
 	{
-		position.x -= speed;
+		if (position.x >0)
+			position.x -= speed;
 	}
 
 	if(App->input->keyboard[SDL_SCANCODE_D] == KEY_STATE::KEY_REPEAT)
 	{
-		position.x += speed;
+		if (position.x <SCREEN_WIDTH-32)
+			position.x += speed;
 	}
 
 	if(App->input->keyboard[SDL_SCANCODE_S] == KEY_STATE::KEY_REPEAT)
 	{
-		position.y += speed;
+		if (position.y <SCREEN_HEIGHT-14) {
+			position.y += speed;
+		}
 		if(current_animation != &down)
 		{
 			down.Reset();
@@ -82,7 +95,9 @@ update_status ModulePlayer::Update()
 
 	if(App->input->keyboard[SDL_SCANCODE_W] == KEY_STATE::KEY_REPEAT)
 	{
-		position.y -= speed;
+		if (position.y > -1864+SCREEN_HEIGHT) {
+			position.y -= speed;
+		}
 		if(current_animation != &up)
 		{
 			up.Reset();

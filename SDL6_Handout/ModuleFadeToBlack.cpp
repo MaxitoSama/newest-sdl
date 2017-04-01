@@ -7,6 +7,7 @@
 #include "ModuleFirstScene.h"
 #include "ModuleSecondScene.h"
 #include "ModuleEndScene.h"
+#include "ModulePlayer.h" 
 #include "SDL/include/SDL_render.h"
 #include "SDL/include/SDL_timer.h"
 
@@ -42,6 +43,10 @@ update_status ModuleFadeToBlack::Update()
 			if(now >= total_time)
 			{
 				to_disable->Disable();
+				App->render->camera.x = 0;//Return the camera to the position 0 after disable the module
+				App->render->camera.y = 0;//If we make it before, the position will move because the position of the camera is always rising
+				App->player->position.x = 112;//Return the player to the position 0 after disable the module
+				App->player->position.y = 128;//If we make it before, the position will be moved because the position of the player is always rising
 				to_enable->Enable();
 				total_time += total_time;
 				start_time = SDL_GetTicks();
