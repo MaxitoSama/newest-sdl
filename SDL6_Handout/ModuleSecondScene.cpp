@@ -6,6 +6,7 @@
 #include "ModuleSecondScene.h"
 #include "ModuleEndScene.h"
 #include "ModuleInput.h"
+#include "ModuleAudio.h"
 #include "ModuleFadeToBlack.h"
 
 
@@ -23,6 +24,8 @@ bool ModuleSecondScene::Start()
 	LOG("Loading space scene");
 
 	background = App->textures->Load("rtype/Area2.png");
+	music = App->music->Load("rtype/Commando_02_Start_Demo.ogg");
+	Mix_PlayMusic(music, -1);
 
 	App->player->Enable();
 

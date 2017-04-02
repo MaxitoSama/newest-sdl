@@ -1,10 +1,10 @@
-#pragma once
 #ifndef _ModuleAudio_H_
 #define _ModuleAudio_H_
 
 #include "Module.h"
 #include "Globals.h"
 #include "SDL_mixer\include\SDL_mixer.h"
+#pragma comment( lib, "SDL_mixer/libx86/SDL2_mixer.lib" )
 
 #define MAX_TRACKS 50
 
@@ -14,10 +14,10 @@ public:
 	ModuleAudio();
 	virtual~ModuleAudio();
 
-	bool Start();
+	bool Init();
 	bool CleanUp();
 	Mix_Music* const Load(const char* path);
-
+	bool Unload(Mix_Music* music);
 
 public:
 	Mix_Music* musica[MAX_TRACKS];

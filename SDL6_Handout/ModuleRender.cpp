@@ -52,15 +52,14 @@ update_status ModuleRender::Update()
 {
 	int speed = 6;
 
-	if (App->input->keyboard[SDL_SCANCODE_W] == KEY_STATE::KEY_REPEAT || App->input->keyboard[SDL_SCANCODE_UP] == KEY_STATE::KEY_REPEAT)
-		if (App->player->position.y>(-1610)+120 && App->player->position.y<120)
+	if (App->input->keyboard[SDL_SCANCODE_W] == KEY_STATE::KEY_REPEAT || App->input->keyboard[SDL_SCANCODE_UP] == KEY_STATE::KEY_REPEAT && App->player->IsEnabled())
+		if (App->player->position.y >= (-1864 + SCREEN_HEIGHT) + 121 && App->player->position.y < 121 && camera.y<4824)
 			camera.y += speed;
 
-	if (App->input->keyboard[SDL_SCANCODE_S] == KEY_STATE::KEY_REPEAT || App->input->keyboard[SDL_SCANCODE_DOWN] == KEY_STATE::KEY_REPEAT)
-		if (App->player->position.y<120 && App->player->position.y>(-1610) + 120)
+	if (App->input->keyboard[SDL_SCANCODE_S] == KEY_STATE::KEY_REPEAT || App->input->keyboard[SDL_SCANCODE_DOWN] == KEY_STATE::KEY_REPEAT && App->player->IsEnabled())
+		if (App->player->position.y <= 121 && App->player->position.y >= (-1864 + SCREEN_HEIGHT) + 121 && camera.y>0) 
 			camera.y -= speed;
-
-
+			
 	return update_status::UPDATE_CONTINUE;
 }
 

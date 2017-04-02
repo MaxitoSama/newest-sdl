@@ -113,7 +113,7 @@
       <Filter>Modules</Filter>
     </ClCompile>
     <ClCompile Include="ModuleEndScene.cpp">
-      <Filter>Core</Filter>
+      <Filter>Modules</Filter>
     </ClCompile>
   </ItemGroup>
 </Project>

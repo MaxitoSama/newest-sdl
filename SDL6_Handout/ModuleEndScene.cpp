@@ -9,6 +9,7 @@
 #include "ModuleInit.h"
 #include "ModuleEndScene.h"
 #include "ModuleSecondScene.h"
+#include "ModuleAudio.h"
 
 
 // Reference at https://www.youtube.com/watch?v=OEhmUuehGOA
@@ -25,6 +26,8 @@ bool ModuleEndScene::Start()
 	LOG("Loading space scene");
 
 	background = App->textures->Load("rtype/Last_Scene.png");
+	music = App->music->Load("rtype/Commando_08_Name_Entry.ogg");
+	Mix_PlayMusic(music, -1);
 
 	return true;
 }

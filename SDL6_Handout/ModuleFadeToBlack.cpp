@@ -8,6 +8,7 @@
 #include "ModuleSecondScene.h"
 #include "ModuleEndScene.h"
 #include "ModulePlayer.h" 
+#include "ModuleAudio.h"
 #include "SDL/include/SDL_render.h"
 #include "SDL/include/SDL_timer.h"
 
@@ -47,6 +48,10 @@ update_status ModuleFadeToBlack::Update()
 				App->render->camera.y = 0;//If we make it before, the position will move because the position of the camera is always rising
 				App->player->position.x = 112;//Return the player to the position 0 after disable the module
 				App->player->position.y = 128;//If we make it before, the position will be moved because the position of the player is always rising
+				App->music->Unload(App->scene_start->music);
+				App->music->Unload(App->scene_space->music);
+				App->music->Unload(App->scene_map2->music);
+				App->music->Unload(App->end_scene->music);
 				to_enable->Enable();
 				total_time += total_time;
 				start_time = SDL_GetTicks();

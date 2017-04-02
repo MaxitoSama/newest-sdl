@@ -6,7 +6,9 @@
 #include "ModuleFirstScene.h"
 #include "ModuleInput.h"
 #include "ModuleFadeToBlack.h"
+#include "ModuleAudio.h"
 #include "ModuleInit.h"
+
 
 // Reference at https://www.youtube.com/watch?v=OEhmUuehGOA
 
@@ -21,6 +23,8 @@ bool ModuleInit::Start()
 {
 	LOG("Loading space scene");
 	background = App->textures->Load("rtype/First_Scene.png");
+	LOG("Loading audio scene");
+	music = App->music->Load("rtype/Commando_01_Credit.wav");
 
 	return true;
 }
@@ -31,8 +35,7 @@ bool ModuleInit::CleanUp()
 	LOG("Unloading space scene");
 
 	App->textures->Unload(background);
-	App->player->Disable();
-
+	
 	return true;
 }
 
@@ -47,6 +50,7 @@ update_status ModuleInit::Update()
 
 	if (App->input->keyboard[SDL_SCANCODE_SPACE] == 1 && fading==false)
 	{
+		Mix_PlayMusic(music, 0);
 		App->fade->FadeToBlack(this, App->scene_space, 2.0f);
 		fading = true;
 	}

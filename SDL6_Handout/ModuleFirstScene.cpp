@@ -6,10 +6,9 @@
 #include "ModuleInput.h"
 #include "ModuleFadeToBlack.h"
 #include "ModuleFirstScene.h"
+#include "ModuleAudio.h"
 #include "ModuleSecondScene.h"
 
-
-// Reference at https://www.youtube.com/watch?v=OEhmUuehGOA
 
 ModuleFirstScene::ModuleFirstScene()
 {}
@@ -23,6 +22,8 @@ bool ModuleFirstScene::Start()
 	LOG("Loading space scene");
 	
 	background = App->textures->Load("rtype/Area1.png");
+	music = App->music->Load("rtype/Commando_02_Start_Demo.ogg");
+	Mix_PlayMusic(music, -1);
 
 	App->player->Enable();
 	
