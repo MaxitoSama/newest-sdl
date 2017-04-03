@@ -126,7 +126,7 @@ update_status ModulePlayer::Update()
 	//RIGHT
 	if(App->input->keyboard[SDL_SCANCODE_RIGHT] == KEY_STATE::KEY_REPEAT)
 	{
-		if (position.x < SCREEN_WIDTH - 32) {
+		if (position.x < SCREEN_WIDTH - 13) {
 			position.x += speed;
 		}
 		if (current_animation != &right)

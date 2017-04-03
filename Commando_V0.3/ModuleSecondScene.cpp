@@ -50,7 +50,7 @@ update_status ModuleSecondScene::Update()
 
 
 	// Draw everything --------------------------------------
-	App->render->Blit(background, 0, -1854+SCREEN_HEIGHT, NULL);
+	App->render->Blit(background, 0, -1864+SCREEN_HEIGHT, NULL);
 
 	if (App->input->keyboard[SDL_SCANCODE_C] == 1 && fading == false)
 	{
