@@ -30,7 +30,8 @@ public:
 	Animation leftUP;
 	Animation rightDOWN;
 	Animation leftDOWN;
-
+	enum Direction{ UP, DOWN, LEFT, RIGHT };
+	Direction playerDirection;
 	iPoint position;
 };
 

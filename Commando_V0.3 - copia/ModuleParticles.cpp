@@ -36,13 +36,40 @@ bool ModuleParticles::Start()
 
 	// TODO 2: Create the template for a new particle "laser"
 	//Laser particle
-	laser.anim.PushBack({232,103,16,12});
-	laser.anim.PushBack({ 249,103,16,12 });
-	laser.anim.loop = true;
-	laser.anim.speed = 0.1f;
-	laser.life = 3000;
-	laser.speed.x+=5;
+	bulletUP.anim.PushBack({240,107,2,2});
+	bulletUP.anim.loop = true;
+	bulletUP.anim.speed = 0.1f;
+	bulletUP.life = 3000;
+	bulletUP.speed.y -= 3;
 
+	bulletDOWN.anim.PushBack({ 240,107,2,2 });
+	bulletDOWN.anim.loop = true;
+	bulletDOWN.anim.speed = 0.1f;
+	bulletDOWN.life = 3000;
+	bulletDOWN.speed.y += 3;
+
+	bulletLEFT.anim.PushBack({ 240,107,2,2 });
+	bulletLEFT.anim.loop = true;
+	bulletLEFT.anim.speed = 0.1f;
+	bulletLEFT.life = 3000;
+	bulletLEFT.speed.x -= 3;
+
+	bulletRIGHT.anim.PushBack({ 240,107,2,2 });
+	bulletRIGHT.anim.loop = true;
+	bulletRIGHT.anim.speed = 0.1f;
+	bulletRIGHT.life = 3000;
+	bulletRIGHT.speed.x += 3;
+
+
+
+	/*
+	switch (App->player->playerDirection) {
+	case UP:
+		
+		break;
+	}
+	App->particles->bullet.speed.y = +3;
+	*/
 	return true;
 }
 

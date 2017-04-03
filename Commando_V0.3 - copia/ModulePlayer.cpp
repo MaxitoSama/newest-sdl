@@ -148,78 +148,48 @@ update_status ModulePlayer::Update()
 		}
 	}
 	//UP
-	if(App->input->keyboard[SDL_SCANCODE_UP] == KEY_STATE::KEY_REPEAT)
+	if (App->input->keyboard[SDL_SCANCODE_UP] == KEY_STATE::KEY_REPEAT)
 	{
-		if (position.y > -1864+SCREEN_HEIGHT) {
+		if (position.y > -1864 + SCREEN_HEIGHT) {
 			position.y -= speed;
 		}
-		if(current_animation != &up)
+		if (current_animation != &up)
 		{
 			up.Reset();
 			current_animation = &up;
 		}
 	}
-	/*//RIGHT UP
-	if (App->input->keyboard[SDL_SCANCODE_UP] == KEY_STATE::KEY_REPEAT && App->input->keyboard[SDL_SCANCODE_RIGHT] == KEY_STATE::KEY_REPEAT)
-	{
-		if (position.y > -1864 + SCREEN_HEIGHT) {
-			position.y -= speed;
-		}
-		if (current_animation != &rightUP)
-		{
-			rightUP.Reset();
-			current_animation = &rightUP;
-		}
-	}
-	//LEFT UP
-	if (App->input->keyboard[SDL_SCANCODE_UP] == KEY_STATE::KEY_REPEAT && App->input->keyboard[SDL_SCANCODE_LEFT] == KEY_STATE::KEY_REPEAT)
-	{
-		if (position.y > -1864 + SCREEN_HEIGHT) {
-			position.y -= speed;
-		}
-		if (current_animation != &leftUP)
-		{
-			leftUP.Reset();
-			current_animation = &leftUP;
-		}
-	}
-	//RIGHT DOWN
-	if (App->input->keyboard[SDL_SCANCODE_DOWN] == KEY_STATE::KEY_REPEAT && App->input->keyboard[SDL_SCANCODE_RIGHT] == KEY_STATE::KEY_REPEAT)
-	{
-		if (position.y > -1864 + SCREEN_HEIGHT) {
-			position.y -= speed;
-		}
-		if (current_animation != &rightDOWN)
-		{
-			rightDOWN.Reset();
-			current_animation = &rightDOWN;
-		}
-	}
-	//LEFT DOWN
-	if (App->input->keyboard[SDL_SCANCODE_DOWN] == KEY_STATE::KEY_REPEAT && App->input->keyboard[SDL_SCANCODE_LEFT] == KEY_STATE::KEY_REPEAT)
-	{
-		if (position.y > -1864 + SCREEN_HEIGHT) {
-			position.y -= speed;
-		}
-		if (current_animation != &leftDOWN)
-		{
-			leftDOWN.Reset();
-			current_animation = &leftDOWN;
-		}
-	}*/
-
 	// TODO 3: Shoot lasers when the player hits SPACE
 
-	if(App->input->keyboard[SDL_SCANCODE_B] == KEY_STATE::KEY_DOWN)
-	{
-		App->particles->AddParticle(App->particles->explosion, position.x, position.y + 25);
-		App->particles->AddParticle(App->particles->explosion, position.x - 25, position.y, 500);
-		App->particles->AddParticle(App->particles->explosion, position.x, position.y - 25, 1000);
-		App->particles->AddParticle(App->particles->explosion, position.x + 25, position.y, 1500);
-	}
+	//if(App->input->keyboard[SDL_SCANCODE_B] == KEY_STATE::KEY_DOWN)
+	//{
+	//	App->particles->AddParticle(App->particles->explosion, position.x, position.y + 25);
+	//	App->particles->AddParticle(App->particles->explosion, position.x - 25, position.y, 500);
+	//	App->particles->AddParticle(App->particles->explosion, position.x, position.y - 25, 1000);
+	//	App->particles->AddParticle(App->particles->explosion, position.x + 25, position.y, 1500);
+	//}
 	if (App->input->keyboard[SDL_SCANCODE_SPACE] == KEY_STATE::KEY_DOWN)
 	{
-		App->particles->AddParticle(App->particles->laser, position.x+32, position.y);
+		if (App->input->keyboard[SDL_SCANCODE_UP] == KEY_STATE::KEY_REPEAT)
+		{  
+			App->particles->AddParticle(App->particles->bulletUP, position.x + 11, position.y + 3);
+		}
+		else if (App->input->keyboard[SDL_SCANCODE_DOWN] == KEY_STATE::KEY_REPEAT)
+		{
+			App->particles->AddParticle(App->particles->bulletDOWN, position.x +2, position.y + 9);
+		}
+		else if (App->input->keyboard[SDL_SCANCODE_RIGHT] == KEY_STATE::KEY_REPEAT)
+		{
+			App->particles->AddParticle(App->particles->bulletRIGHT, position.x + 2, position.y + 9);
+		}
+		else if (App->input->keyboard[SDL_SCANCODE_LEFT] == KEY_STATE::KEY_REPEAT)
+		{
+			App->particles->AddParticle(App->particles->bulletLEFT, position.x + 2, position.y + 9);
+		}
+		else {
+			App->particles->AddParticle(App->particles->bulletUP, position.x + 11, position.y + 3);
+		}
+		
 	}
 
 	if(App->input->keyboard[SDL_SCANCODE_DOWN] == KEY_STATE::KEY_IDLE
