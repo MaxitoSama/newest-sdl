@@ -13,40 +13,37 @@ ModulePlayer::ModulePlayer()
 	graphics = NULL;
 	current_animation = NULL;
 
-	position.x = 150;
+	position.x = 100;
 	position.y = 120;
 
 	// idle animation (just the ship)
-	idle.PushBack({3, 32, 13, 23});
+	idle.PushBack({1, 49, 13, 23});
 
 	// Move upwards
-	up.PushBack({30, 32, 13, 23});
-	up.PushBack({3, 32, 13, 23});
-	up.PushBack({ 56,2,13,23 });
+	up.PushBack({31, 49, 13, 23});
+	up.PushBack({1, 49, 13, 23});
+	up.PushBack({ 61,49,13,23 });
 	up.loop = true;
 	up.speed = 0.1f;
 
 	// Move down
-	down.PushBack({3, 64, 13, 23});
-	down.PushBack({ 105, 35, 14, 23 });
-	down.PushBack({ 27, 64, 13, 23 });
-	down.PushBack({ 105, 35, 14, 23 });
+	down.PushBack({61, 73, 14, 23});
+	down.PushBack({ 1, 73, 14, 23 });
+	down.PushBack({ 31, 73, 14, 23 });
 	down.loop = true;
 	down.speed = 0.1f;
 
 	// Move Right
-	//right.PushBack({})
-	//right.PushBack({})
-	//right.PushBack({})
-	//right.PushBack({})
+	right.PushBack({ 1,1,22,22 });
+	right.PushBack({31,1,19,22});
+	right.PushBack({61,1,25,22});
 	right.loop = true;
 	right.speed = 0.1f;
 
 	// Move Left
-	//left.PushBack({})
-	//left.PushBack({})
-	//left.PushBack({})
-	//left.PushBack({})
+	left.PushBack({1,25,22,22 });
+	left.PushBack({31,25,19,22});
+	left.PushBack({61,25,25,22});
 	left.loop = true;
 	left.speed = 0.1f;
 
@@ -93,6 +90,7 @@ bool ModulePlayer::Start()
 
 	graphics = App->textures->Load("rtype/Superjoe_Sprites_1.png");
 
+
 	return true;
 }
 
@@ -126,7 +124,7 @@ update_status ModulePlayer::Update()
 	//RIGHT
 	if(App->input->keyboard[SDL_SCANCODE_RIGHT] == KEY_STATE::KEY_REPEAT)
 	{
-		if (position.x < SCREEN_WIDTH - 32) {
+		if (position.x < SCREEN_WIDTH - 20) {
 			position.x += speed;
 		}
 		if (current_animation != &right)
@@ -138,7 +136,7 @@ update_status ModulePlayer::Update()
 	//DOWN
 	if(App->input->keyboard[SDL_SCANCODE_DOWN] == KEY_STATE::KEY_REPEAT)
 	{
-		if (position.y <SCREEN_HEIGHT-14) {
+		if (position.y <SCREEN_HEIGHT-20) {
 			position.y += speed;
 		}
 		if(current_animation != &down)
@@ -180,11 +178,11 @@ update_status ModulePlayer::Update()
 		}
 		else if (App->input->keyboard[SDL_SCANCODE_RIGHT] == KEY_STATE::KEY_REPEAT)
 		{
-			App->particles->AddParticle(App->particles->bulletRIGHT, position.x + 2, position.y + 9);
+			App->particles->AddParticle(App->particles->bulletRIGHT, position.x + 22, position.y + 7);
 		}
 		else if (App->input->keyboard[SDL_SCANCODE_LEFT] == KEY_STATE::KEY_REPEAT)
 		{
-			App->particles->AddParticle(App->particles->bulletLEFT, position.x + 2, position.y + 9);
+			App->particles->AddParticle(App->particles->bulletLEFT, position.x + 2, position.y + 8);
 		}
 		else {
 			App->particles->AddParticle(App->particles->bulletUP, position.x + 11, position.y + 3);
@@ -193,7 +191,9 @@ update_status ModulePlayer::Update()
 	}
 
 	if(App->input->keyboard[SDL_SCANCODE_DOWN] == KEY_STATE::KEY_IDLE
-	   && App->input->keyboard[SDL_SCANCODE_UP] == KEY_STATE::KEY_IDLE)
+	   && App->input->keyboard[SDL_SCANCODE_UP] == KEY_STATE::KEY_IDLE
+		&& App->input->keyboard[SDL_SCANCODE_RIGHT] == KEY_STATE::KEY_IDLE
+		 && App->input->keyboard[SDL_SCANCODE_LEFT] == KEY_STATE::KEY_IDLE)
 		current_animation = &idle;
 
 	// Draw everything --------------------------------------
