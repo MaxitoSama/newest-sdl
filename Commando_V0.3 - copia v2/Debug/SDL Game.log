@@ -1,0 +1,18 @@
+﻿  ModuleWindow.cpp
+  ModuleTextures.cpp
+  ModuleSecondScene.cpp
+  ModuleFirstScene.cpp
+  ModuleRender.cpp
+  ModulePlayer.cpp
+  ModuleParticles.cpp
+  ModuleInit.cpp
+  ModuleInput.cpp
+  ModuleFadeToBlack.cpp
+  ModuleEndScene.cpp
+  ModuleAudio.cpp
+  Main.cpp
+  Globals.cpp
+  Application.cpp
+  Generando código...
+  SDL Game.vcxproj -> C:\Users\polfe\Documents\GitHub\newest-sdl\Commando_V0.3 - copia v2\Debug\SDL6 Handout.exe
+  SDL Game.vcxproj -> C:\Users\polfe\Documents\GitHub\newest-sdl\Commando_V0.3 - copia v2\Debug\SDL6 Handout.pdb (Partial PDB)
