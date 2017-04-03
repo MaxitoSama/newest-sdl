@@ -3,6 +3,7 @@
 
 #include "Module.h"
 #include "SDL_mixer\include\SDL_mixer.h"
+#include "Animation.h"
 #pragma comment( lib, "SDL_mixer/libx86/SDL2_mixer.lib" )
 
 struct SDL_Texture;
@@ -21,7 +22,9 @@ public:
 	
 	SDL_Texture* background = nullptr;
 	SDL_Texture* stars = nullptr;
+	SDL_Texture* palm_trees_texture = nullptr;
 	Mix_Music* music = NULL;
+	Animation palm_trees;
 	bool fading = false;
 };
 
