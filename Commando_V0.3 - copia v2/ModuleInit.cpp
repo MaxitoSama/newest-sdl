@@ -51,7 +51,7 @@ update_status ModuleInit::Update()
 	if (App->input->keyboard[SDL_SCANCODE_SPACE] == 1 && fading==false)
 	{
 		Mix_PlayMusic(music, 0);
-		App->fade->FadeToBlack(this, App->scene_space, 2.0f);
+		App->fade->FadeToBlack(this, App->scene_space, 0.5f);
 		fading = true;
 	}
 
