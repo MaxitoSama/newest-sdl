@@ -90,7 +90,6 @@ bool ModulePlayer::Start()
 
 	graphics = App->textures->Load("rtype/Superjoe_Sprites_1.png");
 
-
 	return true;
 }
 

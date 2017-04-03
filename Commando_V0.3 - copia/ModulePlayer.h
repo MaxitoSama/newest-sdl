@@ -4,6 +4,8 @@
 #include "Module.h"
 #include "Animation.h"
 #include "p2Point.h"
+#include "SDL_mixer\include\SDL_mixer.h"
+#pragma comment( lib, "SDL_mixer/libx86/SDL2_mixer.lib" )
 
 struct SDL_Texture;
 
@@ -20,8 +22,7 @@ public:
 public:
 
 	SDL_Texture* graphics = nullptr;
-	SDL_Texture* graphics2 = nullptr;
-
+	Mix_Music* music = NULL;
 	Animation* current_animation = nullptr;
 	Animation idle;
 	Animation up;

@@ -1,0 +1,19 @@
+﻿  Application.cpp
+  Globals.cpp
+  Main.cpp
+  ModuleAudio.cpp
+  ModuleEndScene.cpp
+  ModuleFadeToBlack.cpp
+  ModuleInput.cpp
+  ModuleInit.cpp
+  ModuleParticles.cpp
+  ModulePlayer.cpp
+  ModuleRender.cpp
+  ModuleFirstScene.cpp
+  ModuleSecondScene.cpp
+  ModuleTextures.cpp
+  ModuleWindow.cpp
+  Generating code
+  All 124 functions were compiled because no usable IPDB/IOBJ from previous compilation was found.
+  Finished generating code
+  SDL Game.vcxproj -> C:\Users\Marc\Documents\GitHub\newest-sdl\Commando_V0.3 - copia\Release\SDL6 Handout.exe

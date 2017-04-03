@@ -2,6 +2,7 @@
 #define __MODULEFIRSTSCENE_H__
 
 #include "Module.h"
+#include "Animation.h"
 #include "SDL_mixer\include\SDL_mixer.h"
 #pragma comment( lib, "SDL_mixer/libx86/SDL2_mixer.lib" )
 
@@ -21,7 +22,9 @@ public:
 	
 	SDL_Texture* background = nullptr;
 	SDL_Texture* stars = nullptr;
+	SDL_Texture* palm_trees_texture = nullptr;
 	Mix_Music* music = NULL;
+	Animation palm_trees;
 	bool fading = false;
 };
 
