@@ -1,2 +1,19 @@
-﻿  ModulePlayer.cpp
-  SDL Game.vcxproj -> C:\Users\Marc\Documents\GitHub\newest-sdl\SDL6_Handout\Debug\SDL6 Handout.exe
+﻿  ModuleWindow.cpp
+  ModuleTextures.cpp
+  ModuleSecondScene.cpp
+  ModuleFirstScene.cpp
+  ModuleRender.cpp
+  ModulePlayer.cpp
+  ModuleParticles.cpp
+  ModuleInit.cpp
+  ModuleInput.cpp
+  ModuleFadeToBlack.cpp
+  ModuleEndScene.cpp
+  ModuleAudio.cpp
+  Main.cpp
+  Globals.cpp
+  Application.cpp
+  Generating Code...
+cl : Command line warning D9028: minimal rebuild failure, reverting to normal build
+  SDL Game.vcxproj -> C:\Users\marcgiu\Documents\GitHub\newest-sdl\SDL6_Handout\Debug\SDL6 Handout.exe
+  SDL Game.vcxproj -> C:\Users\marcgiu\Documents\GitHub\newest-sdl\SDL6_Handout\Debug\SDL6 Handout.pdb (Full PDB)

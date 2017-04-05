@@ -6,6 +6,7 @@
 #include "ModuleFirstScene.h"
 #include "ModuleSecondScene.h"
 #include "ModuleEndScene.h"
+#include "ModuleCollision.h"
 #include "ModulePlayer.h"
 #include "ModuleFadeToBlack.h"
 #include "ModuleParticles.h"
@@ -14,18 +15,20 @@
 
 Application::Application()
 {
-	modules[0] = window = new ModuleWindow();
-	modules[1] = render = new ModuleRender();
-	modules[2] = input = new ModuleInput();
-	modules[3] = textures = new ModuleTextures();
-	modules[4] = scene_space = new ModuleFirstScene(); // Charge all the scenes before Player!!! if we don't do that the player will be under the background
-	modules[5] = scene_map2 = new ModuleSecondScene();
-	modules[6] = end_scene = new ModuleEndScene();
-	modules[7] = player = new ModulePlayer();
-	modules[8] = particles = new ModuleParticles();
-	modules[9] = fade = new ModuleFadeToBlack();
-	modules[10] = scene_start = new ModuleInit();
-	modules[11] = music = new ModuleAudio();
+	int i = 0;
+	modules[i++] = window = new ModuleWindow();
+	modules[i++] = render = new ModuleRender();
+	modules[i++] = input = new ModuleInput();
+	modules[i++] = textures = new ModuleTextures();
+	modules[i++] = scene_space = new ModuleFirstScene(); // Charge all the scenes before Player!!! if we don't do that the player will be under the background
+	modules[i++] = scene_map2 = new ModuleSecondScene();
+	modules[i++] = end_scene = new ModuleEndScene();
+	modules[i++] = player = new ModulePlayer();
+	modules[i++] = particles = new ModuleParticles();
+	modules[i++] = fade = new ModuleFadeToBlack();
+	modules[i++] = scene_start = new ModuleInit();
+	modules[i++] = collision = new ModuleCollision();
+	modules[i++] = music = new ModuleAudio();
 	
 }	
 
@@ -45,6 +48,7 @@ bool Application::Init()
 	scene_map2->Disable();
 	end_scene->Disable();
 	music->Disable();
+	collision->Disable();
 	
 	// ---
 
