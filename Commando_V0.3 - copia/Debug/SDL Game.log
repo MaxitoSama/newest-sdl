@@ -1,26 +1,4 @@
-﻿  ModuleCollision.cpp
-c:\users\marcgiu\documents\github\newest-sdl\commando_v0.3 - copia\modulecollision.cpp(117): error C2660: 'ModuleRender::DrawQuad': function does not take 5 arguments
-c:\users\marcgiu\documents\github\newest-sdl\commando_v0.3 - copia\modulecollision.cpp(120): error C2660: 'ModuleRender::DrawQuad': function does not take 5 arguments
-c:\users\marcgiu\documents\github\newest-sdl\commando_v0.3 - copia\modulecollision.cpp(123): error C2660: 'ModuleRender::DrawQuad': function does not take 5 arguments
-c:\users\marcgiu\documents\github\newest-sdl\commando_v0.3 - copia\modulecollision.cpp(126): error C2660: 'ModuleRender::DrawQuad': function does not take 5 arguments
-c:\users\marcgiu\documents\github\newest-sdl\commando_v0.3 - copia\modulecollision.cpp(129): error C2660: 'ModuleRender::DrawQuad': function does not take 5 arguments
-c:\users\marcgiu\documents\github\newest-sdl\commando_v0.3 - copia\modulecollision.cpp(132): error C2660: 'ModuleRender::DrawQuad': function does not take 5 arguments
-  Generating Code...
-  Compiling...
-  Application.cpp
-  Generating Code...
-  Compiling...
-  ModuleWindow.cpp
-  ModuleTextures.cpp
-  ModuleSecondScene.cpp
-  ModuleRender.cpp
-  ModulePlayer.cpp
-  ModuleParticles.cpp
-  ModuleInput.cpp
-  ModuleInit.cpp
-  ModuleFirstScene.cpp
-  ModuleFadeToBlack.cpp
-  ModuleEndScene.cpp
-  ModuleAudio.cpp
-  Main.cpp
-  Generating Code...
+﻿  ModuleTextures.cpp
+  LINK : C:\Users\marcgiu\Documents\GitHub\newest-sdl\Commando_V0.3 - copia\Debug\SDL6 Handout.exe not found or not built by the last incremental link; performing full link
+  SDL Game.vcxproj -> C:\Users\marcgiu\Documents\GitHub\newest-sdl\Commando_V0.3 - copia\Debug\SDL6 Handout.exe
+  SDL Game.vcxproj -> C:\Users\marcgiu\Documents\GitHub\newest-sdl\Commando_V0.3 - copia\Debug\SDL6 Handout.pdb (Full PDB)
